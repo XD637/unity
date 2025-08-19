@@ -1,3 +1,22 @@
+// Delete by ClassName using request body
+app.delete('/unity', async (req, res) => {
+  const className = req.body.ClassName;
+  if (!className) {
+    return res.status(400).json({ error: 'ClassName field is required in body' });
+  }
+  try {
+    const unity = await Unity.findOneAndDelete({ ClassName: className });
+    if (!unity) {
+      console.warn('Delete by ClassName (body) not found:', className);
+      return res.status(404).json({ error: 'Not found' });
+    }
+    console.log('Deleted by ClassName (body):', unity);
+    res.json({ message: 'Deleted by ClassName (body)' });
+  } catch (err) {
+    console.error('Delete by ClassName (body) error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
 import express from 'express';
 import mongoose from 'mongoose';
 import Unity from './unity.model.js';
