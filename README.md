@@ -18,11 +18,9 @@ A simple Node.js Express API with MongoDB for managing Unity classes.
 
 ## Setup
 1. Install dependencies:
-   ```
-npm install
-   ```
+```npm install```
 2. Start the server:
-   ```
+  ```
 npm run dev
    ```
 
