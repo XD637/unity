@@ -1,4 +1,4 @@
-
+import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
 import Unity from './unity.model.js';
@@ -8,6 +8,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const mongoUri = process.env.MONGO_URI;
 mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
