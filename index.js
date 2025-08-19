@@ -1,3 +1,7 @@
+// Home route
+app.get('/', (req, res) => {
+  res.json({ message: 'Welcome to the Unity API!' });
+});
 // Delete by ClassName using request body
 app.delete('/unity', async (req, res) => {
   const className = req.body.ClassName;
